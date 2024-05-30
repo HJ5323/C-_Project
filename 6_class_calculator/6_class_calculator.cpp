@@ -1,44 +1,44 @@
 /*
-1. Å¬·¡½º »ó¼Ó, Á¤Àû ¸â¹ö, ¾÷Ä³½ºÆÃ, °¡»ó ÇÔ¼ö¸¦ »ç¿ëÇÏ¿© ´ÙÀ½°ú °°ÀÌ °£´ÜÇÑ »çÄ¢¿¬»êÀ» ¼öÇàÇÏ´Â °è»ê±â ¸¸µé±â
-    Y : µµÃâµÈ °á°ú¸¦ ÀÌ¿ëÇÑ ÈÄ¼Ó °è»ê
-    AC : ÀÌÀü ±â·Ï ÃÊ±âÈ­
-    EXIT : Á¾·á
+1. í´ë˜ìŠ¤ ìƒì†, ì •ì  ë©¤ë²„, ì—…ìºìŠ¤íŒ…, ê°€ìƒ í•¨ìˆ˜ë¥¼ ì‚¬ìš©í•˜ì—¬ ë‹¤ìŒê³¼ ê°™ì´ ê°„ë‹¨í•œ ì‚¬ì¹™ì—°ì‚°ì„ ìˆ˜í–‰í•˜ëŠ” ê³„ì‚°ê¸° ë§Œë“¤ê¸°
+    Y : ë„ì¶œëœ ê²°ê³¼ë¥¼ ì´ìš©í•œ í›„ì† ê³„ì‚°
+    AC : ì´ì „ ê¸°ë¡ ì´ˆê¸°í™”
+    EXIT : ì¢…ë£Œ
 */
 
 #include <iostream>
 
 using namespace std;
 
-// °è»ê±â Å¬·¡½º
+// ê³„ì‚°ê¸° í´ë˜ìŠ¤
 class Calculator {
 public:
-    static float result; // Á¤Àû ¸â¹ö º¯¼ö: ÇöÀç °á°ú¸¦ ÀúÀå
+    static float result; // ì •ì  ë©¤ë²„ ë³€ìˆ˜: í˜„ì¬ ê²°ê³¼ë¥¼ ì €ì¥
 
-    // °¡»ó ÇÔ¼ö: »çÄ¢¿¬»êÀ» ¼öÇàÇÏ´Â ÇÔ¼ö
+    // ìˆœìˆ˜ ê°€ìƒ í•¨ìˆ˜
     virtual float calculate(float num1, float num2) = 0;
 };
 
-float Calculator::result = 0.0; // Á¤Àû ¸â¹ö º¯¼ö ÃÊ±âÈ­
+float Calculator::result = 0.0; // ì •ì  ë©¤ë²„ ë³€ìˆ˜ ì´ˆê¸°í™”
 
-// µ¡¼À Å¬·¡½º
+// ë§ì…ˆ í´ë˜ìŠ¤
 class Add : public Calculator {
 public:
-    float calculate(float num1, float num2) override {
+    float calculate(float num1, float num2) override { // override -> calculate í•¨ìˆ˜ ì¬ì •ì˜
         result = num1 + num2;
         return result;
     }
 };
 
-// »¬¼À Å¬·¡½º
+// ëº„ì…ˆ í´ë˜ìŠ¤
 class Sub : public Calculator {
 public:
-    float calculate(float num1, float num2) override { // override -> calculat ÇÔ¼ö ÀçÁ¤ÀÇ
+    float calculate(float num1, float num2) override { 
         result = num1 - num2;
         return result;
     }
 };
 
-// °ö¼À Å¬·¡½º
+// ê³±ì…ˆ í´ë˜ìŠ¤
 class Mul : public Calculator {
 public:
     float calculate(float num1, float num2) override {
@@ -47,7 +47,7 @@ public:
     }
 };
 
-// ³ª´°¼À Å¬·¡½º
+// ë‚˜ëˆ—ì…ˆ í´ë˜ìŠ¤
 class Div : public Calculator {
 public:
     float calculate(float num1, float num2) override {
@@ -62,31 +62,31 @@ int main() {
     char op;
     bool continueCal = false;
 
-    // °è»ê±â °´Ã¼ »ı¼º
+    // ê³„ì‚°ê¸° ê°ì²´ ìƒì„±
     Calculator* calculator = 0;
 
     do {
-        if (continueCal) { // Y°¡ ÀÔ·ÂµÇ¾úÀ» ¶§
+        if (continueCal) { // Yê°€ ì…ë ¥ë˜ì—ˆì„ ë•Œ
             num1 = Calculator::result;
 
-            cout << "¿¬»êÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä: ";
+            cout << "ì—°ì‚°ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”: ";
             cin >> op;
 
-            cout << "¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä: ";
+            cout << "ìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”: ";
             cin >> num2;
         }
-        else { // ¿ÜÀÇ °æ¿ì
-            cout << "¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä: ";
+        else { // ì™¸ì˜ ê²½ìš°
+            cout << "ìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”: ";
             cin >> num1;
 
-            cout << "¿¬»êÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä: ";
+            cout << "ì—°ì‚°ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”: ";
             cin >> op;
 
-            cout << "¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä: ";
+            cout << "ìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”: ";
             cin >> num2;
         }
 
-        // »ç¿ëÀÚ ÀÔ·Â¿¡ µû¶ó °´Ã¼ ¼±ÅÃ
+        // ì‚¬ìš©ì ì…ë ¥ì— ë”°ë¼ ê°ì²´ ì„ íƒ
         switch (op) {
         case '+':
             calculator = new Add();
@@ -101,39 +101,39 @@ int main() {
             calculator = new Div();
             break;
         default:
-            cout << "¿À·ù: Àß¸øµÈ ¿¬»êÀÚÀÔ´Ï´Ù." << endl;
+            cout << "ì˜¤ë¥˜: ì˜ëª»ëœ ì—°ì‚°ìì…ë‹ˆë‹¤." << endl;
             break;
         }
 
-        // °è»ê ¹× °á°ú Ãâ·Â
+        // ê³„ì‚° ë° ê²°ê³¼ ì¶œë ¥
         if (calculator != NULL) {
-            cout << "°á°ú: " << calculator->calculate(num1, num2) << endl;
-            delete calculator; // µ¿Àû ÇÒ´çµÈ °´Ã¼ »èÁ¦
+            cout << "ê²°ê³¼: " << calculator->calculate(num1, num2) << endl;
+            delete calculator; // ë™ì  í• ë‹¹ëœ ê°ì²´ ì‚­ì œ
         }
 
         while (true) {
             cout << "-------------------------------" << endl;
-            cout << "¿¬»êÀ» °è¼Ó ÁøÇàÇÏ½Ã°Ú½À´Ï±î? (Y: °è¼Ó, AC: ÃÊ±âÈ­, EXIT: Á¾·á): ";
+            cout << "ì—°ì‚°ì„ ê³„ì† ì§„í–‰í•˜ì‹œê² ìŠµë‹ˆê¹Œ? (Y: ê³„ì†, AC: ì´ˆê¸°í™”, EXIT: ì¢…ë£Œ): ";
             cin >> choice;
 
-            for (auto& c : choice) c = toupper(c); // choiceÀÇ °¢ ¹®ÀÚ c¸¦ ´ë¹®ÀÚ·Î ¹Ù²ãÁÜ
+            for (auto& c : choice) c = toupper(c); // choiceì˜ ê° ë¬¸ì cë¥¼ ëŒ€ë¬¸ìë¡œ ë°”ê¿”ì¤Œ
 
             if (choice == "Y") {
                 continueCal = true;
                 break;
             }
             else if (choice == "AC") {
-                Calculator::result = 0; // °è»ê °á°ú ÃÊ±âÈ­
-                cout << "°á°ú°¡ ÃÊ±âÈ­µÇ¾ú½À´Ï´Ù.\n" << endl;
+                Calculator::result = 0; // ê³„ì‚° ê²°ê³¼ ì´ˆê¸°í™”
+                cout << "ê²°ê³¼ê°€ ì´ˆê¸°í™”ë˜ì—ˆìŠµë‹ˆë‹¤.\n" << endl;
                 continueCal = false;
                 break;
             }
             else if (choice == "EXIT") {
-                cout << "Á¾·áÇÕ´Ï´Ù." << endl;
+                cout << "ì¢…ë£Œí•©ë‹ˆë‹¤." << endl;
                 return 0;
             }
             else {
-                cout << "´Ù½Ã ÀÔ·ÂÇØ ÁÖ¼¼¿ä." << endl;
+                cout << "ë‹¤ì‹œ ì…ë ¥í•´ ì£¼ì„¸ìš”." << endl;
                 continue;
             }
         }
