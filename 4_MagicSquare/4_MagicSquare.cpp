@@ -1,133 +1,61 @@
 /*
-»ç¿ëÀÚ·ÎºÎÅÍ È¦¼ö nÀ» ÀÔ·Â ¹Þ¾Æ n*nÀÇ ¸¶¹æÁø ¸¸µé±â
+ì‚¬ìš©ìžë¡œë¶€í„° í™€ìˆ˜ nì„ ìž…ë ¥ ë°›ì•„ n*nì˜ ë§ˆë°©ì§„ ë§Œë“¤ê¸°
 
-¸¶¹æÁøÀÌ¶õ?
-1¿¡¼­ nÁ¦°ö±îÁöÀÇ ¼ö¸¦ Á¤»ç°¢ÇüÀ¸·Î ¹è¿­ÇØ °¡·Î, ¼¼·Î, ´ë°¢ÀÇ ÇÕ°è°¡ ¸ðµÎ °°µµ·Ï ¸¸µç °Í
+ë§ˆë°©ì§„ì´ëž€?
+1ì—ì„œ nì œê³±ê¹Œì§€ì˜ ìˆ˜ë¥¼ ì •ì‚¬ê°í˜•ìœ¼ë¡œ ë°°ì—´í•´ ê°€ë¡œ, ì„¸ë¡œ, ëŒ€ê°ì˜ í•©ê³„ê°€ ëª¨ë‘ ê°™ë„ë¡ ë§Œë“  ê²ƒ
 
-±ÔÄ¢ (nÀÌ È¦¼öÀÏ ¶§)
-1. 1Àº Ã¹ ÇàÀÇ °¡¿îµ¥¿¡ À§Ä¡ÇÑ´Ù.
-2. ¿ì»ó´ÜÀ¸·Î °¥¼ö·Ï ¼ýÀÚ°¡ 1¾¿ ´Ã¾î³­´Ù.
-3. ¿ì»ó´ÜÀ¸·Î ÀÌµ¿ÇÏ´Â µµÁß ÀÌ¹Ì Ä­ÀÌ Ã¤¿öÁ® ÀÖÀ¸¸é ¹Ù·Î ¾Æ·¡ Ä­¿¡ ´ÙÀ½ ¼ýÀÚ°¡ Ã¤¿öÁø´Ù.
-4. Ã¹¹øÂ° Çà¿¡¼­ ¿ì»ó´ÜÀ¸·Î ÀÌµ¿ÇÒ ¶§´Â ¸¶Áö¸· ÇàÀÇ ´ÙÀ½ ¿­·Î ÀÌµ¿ÇÑ´Ù.
-5. ¸¶Áö¸· ¿­¿¡¼­ ¿ì»ó´ÜÀ¸·Î ÀÌµ¿ÇÒ ¶§´Â Ã¹¹øÂ° ¿­ÀÇ ÀÌÀü ÇàÀ¸·Î ÀÌµ¿ÇÑ´Ù.
-6. Ã¹¹øÂ° ÇàÀÇ ¸¶Áö¸· ¿­¿¡¼­´Â ¿ì»ó´ÜÀ¸·Î ÀÌµ¿ÇÏ´Â °ÍÀÌ ¾Æ´Ï¶ó ¹Ù·Î ¾Æ·¡Ä­À¸·Î ÀÌµ¿ÇÑ´Ù.
+ê·œì¹™ (nì´ í™€ìˆ˜ì¼ ë•Œ)
+1. 1ì€ ì²« í–‰ì˜ ê°€ìš´ë°ì— ìœ„ì¹˜í•œë‹¤.
+2. ìš°ìƒë‹¨ìœ¼ë¡œ ê°ˆìˆ˜ë¡ ìˆ«ìžê°€ 1ì”© ëŠ˜ì–´ë‚œë‹¤.
+3. ìš°ìƒë‹¨ìœ¼ë¡œ ì´ë™í•˜ëŠ” ë„ì¤‘ ì´ë¯¸ ì¹¸ì´ ì±„ì›Œì ¸ ìžˆìœ¼ë©´ ë°”ë¡œ ì•„ëž˜ ì¹¸ì— ë‹¤ìŒ ìˆ«ìžê°€ ì±„ì›Œì§„ë‹¤.
+4. ì²«ë²ˆì§¸ í–‰ì—ì„œ ìš°ìƒë‹¨ìœ¼ë¡œ ì´ë™í•  ë•ŒëŠ” ë§ˆì§€ë§‰ í–‰ì˜ ë‹¤ìŒ ì—´ë¡œ ì´ë™í•œë‹¤.
+5. ë§ˆì§€ë§‰ ì—´ì—ì„œ ìš°ìƒë‹¨ìœ¼ë¡œ ì´ë™í•  ë•ŒëŠ” ì²«ë²ˆì§¸ ì—´ì˜ ì´ì „ í–‰ìœ¼ë¡œ ì´ë™í•œë‹¤.
+6. ì²«ë²ˆì§¸ í–‰ì˜ ë§ˆì§€ë§‰ ì—´ì—ì„œëŠ” ìš°ìƒë‹¨ìœ¼ë¡œ ì´ë™í•˜ëŠ” ê²ƒì´ ì•„ë‹ˆë¼ ë°”ë¡œ ì•„ëž˜ì¹¸ìœ¼ë¡œ ì´ë™í•œë‹¤.
 */
-
-//#include <iostream>
-//#include <vector>
-//
-//using namespace std;
-//
-//// È¦¼ö n¿¡ ´ëÇÑ ¸¶¹æÁø »ý¼º ÇÔ¼ö
-//vector<vector<int>> generateMagicSquare(int n) {
-//    vector<vector<int>> magicSquare(n, vector<int>(n, 0)); // n*n, ÃÊ±â°ª 0
-//
-//    // ÃÊ±â À§Ä¡ ¼³Á¤ -> 1Çà ¼¾ÅÍ¿¡ À§Ä¡
-//    int row = 0;
-//    int col = n / 2;
-//
-//    // ¸¶¹æÁø¿¡ ¼ýÀÚ Ã¤¿ì±â
-//    for (int num = 1; num <= n * n; num++) {
-//        magicSquare[row][col] = num;
-//
-//        // ´ÙÀ½ À§Ä¡ °è»ê
-//        int nextRow = (row - 1 + n) % n;
-//        int nextCol = (col + 1) % n;
-//
-//        // ´ÙÀ½ À§Ä¡°¡ ÀÌ¹Ì Ã¤¿öÁ® ÀÖ´Â °æ¿ì
-//        if (magicSquare[nextRow][nextCol] != 0) {
-//            // ¾Æ·¡ Ä­À¸·Î ÀÌµ¿
-//            row = (row + 1) % n;
-//        }
-//        else {
-//            // ¿ì»ó´ÜÀ¸·Î ÀÌµ¿
-//            row = nextRow;
-//            col = nextCol;
-//        }
-//    }
-//
-//    return magicSquare;
-//}
-//
-//// ¸¶¹æÁø Ãâ·Â ÇÔ¼ö
-//void printMagicSquare(const vector<vector<int>>& magicSquare) {
-//    for (const auto& row : magicSquare) {
-//        for (int num : row) {
-//            if (num < 10) { // ÇÑ ÀÚ¸® ¼öÀÏ ¶§ °ø¹é Ãß°¡
-//                cout << " ";
-//            }
-//            cout << num << " "; // ¼ýÀÚ Ãâ·Â ÈÄ °ø¹é Ãß°¡
-//        }
-//        cout << endl;
-//    }
-//}
-//
-//int main() {
-//    int n;
-//
-//    while (true) {
-//        cout << "È¦¼ö nÀ» ÀÔ·ÂÇÏ¼¼¿ä: ";
-//        cin >> n;
-//
-//        // È¦¼öÀÎÁö È®ÀÎ
-//        if (n % 2 != 0) {
-//            break;
-//        }
-//
-//        // error : Â¦¼öÀÎ °æ¿ì
-//        cout << "È¦¼ö¸¦ ÀÔ·ÂÇØ ÁÖ¼¼¿ä.\n" << endl;
-//    }
-//
-//    // ¸¶¹æÁø »ý¼º ¹× Ãâ·Â
-//    vector<vector<int>> magicSquare = generateMagicSquare(n);
-//    printMagicSquare(magicSquare);
-//
-//    return 0;
-//}
 
 #include <iostream>
 #include <vector>
 
 using namespace std;
 
-// È¦¼ö n¿¡ ´ëÇÑ ¸¶¹æÁø »ý¼º ÇÔ¼ö
+// í™€ìˆ˜ nì— ëŒ€í•œ ë§ˆë°©ì§„ ìƒì„± í•¨ìˆ˜
 void generateMagicSquare(int n, vector<vector<int>>& magicSquare) {
-    // n*n, ÃÊ±â°ª 0ÀÇ 2Â÷¿ø º¤ÅÍ·Î ¼³Á¤
+    // n*n, ì´ˆê¸°ê°’ 0ì˜ 2ì°¨ì› ë²¡í„°ë¡œ ì„¤ì •
     magicSquare = vector<vector<int>>(n, vector<int>(n, 0));
 
-    // ÃÊ±â À§Ä¡ ¼³Á¤ -> 1Çà ¼¾ÅÍ¿¡ À§Ä¡
+    // ì´ˆê¸° ìœ„ì¹˜ ì„¤ì • -> 1í–‰ ì„¼í„°ì— ìœ„ì¹˜
     int row = 0;
     int col = n / 2;
 
-    // ¸¶¹æÁø¿¡ ¼ýÀÚ Ã¤¿ì±â
+    // ë§ˆë°©ì§„ì— ìˆ«ìž ì±„ìš°ê¸°
     for (int num = 1; num <= n * n; num++) {
         magicSquare[row][col] = num;
 
-        // ´ÙÀ½ À§Ä¡ °è»ê
+        // ë‹¤ìŒ ìœ„ì¹˜ ê³„ì‚°
         int nextRow = (row - 1 + n) % n;
         int nextCol = (col + 1) % n;
 
-        // ´ÙÀ½ À§Ä¡°¡ ÀÌ¹Ì Ã¤¿öÁ® ÀÖ´Â °æ¿ì
+        // ë‹¤ìŒ ìœ„ì¹˜ê°€ ì´ë¯¸ ì±„ì›Œì ¸ ìžˆëŠ” ê²½ìš°
         if (magicSquare[nextRow][nextCol] != 0) {
-            // ¾Æ·¡ Ä­À¸·Î ÀÌµ¿
+            // ì•„ëž˜ ì¹¸ìœ¼ë¡œ ì´ë™
             row = (row + 1) % n;
         }
         else {
-            // ¿ì»ó´ÜÀ¸·Î ÀÌµ¿
+            // ìš°ìƒë‹¨ìœ¼ë¡œ ì´ë™
             row = nextRow;
             col = nextCol;
         }
     }
 }
 
-// ¸¶¹æÁø Ãâ·Â ÇÔ¼ö
+// ë§ˆë°©ì§„ ì¶œë ¥ í•¨ìˆ˜
 void printMagicSquare(const vector<vector<int>>& magicSquare) {
     for (const auto& row : magicSquare) {
         for (int num : row) {
-            if (num < 10) { // ÇÑ ÀÚ¸® ¼öÀÏ ¶§ °ø¹é Ãß°¡
+            if (num < 10) { // í•œ ìžë¦¬ ìˆ˜ì¼ ë•Œ ê³µë°± ì¶”ê°€
                 cout << " ";
             }
-            cout << num << " "; // ¼ýÀÚ Ãâ·Â ÈÄ °ø¹é Ãß°¡
+            cout << num << " "; // ìˆ«ìž ì¶œë ¥ í›„ ê³µë°± ì¶”ê°€
         }
         cout << endl;
     }
@@ -137,19 +65,19 @@ int main() {
     int n;
 
     while (true) {
-        cout << "È¦¼ö nÀ» ÀÔ·ÂÇÏ¼¼¿ä: ";
+        cout << "í™€ìˆ˜ nì„ ìž…ë ¥í•˜ì„¸ìš”: ";
         cin >> n;
 
-        // È¦¼öÀÎÁö È®ÀÎ
+        // í™€ìˆ˜ì¸ì§€ í™•ì¸
         if (n % 2 != 0) {
             break;
         }
 
-        // error : Â¦¼öÀÎ °æ¿ì
-        cout << "È¦¼ö¸¦ ÀÔ·ÂÇØ ÁÖ¼¼¿ä.\n" << endl;
+        // error : ì§ìˆ˜ì¸ ê²½ìš°
+        cout << "í™€ìˆ˜ë¥¼ ìž…ë ¥í•´ ì£¼ì„¸ìš”.\n" << endl;
     }
 
-    // ¸¶¹æÁø »ý¼º ¹× Ãâ·Â
+    // ë§ˆë°©ì§„ ìƒì„± ë° ì¶œë ¥
     vector<vector<int>> magicSquare;
     generateMagicSquare(n, magicSquare);
     printMagicSquare(magicSquare);
