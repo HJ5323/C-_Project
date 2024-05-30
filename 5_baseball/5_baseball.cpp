@@ -1,7 +1,7 @@
 /*
-1. »ç¿ëÀÚ´Â 1ºÎÅÍ 9±îÁö Áß 3°³ÀÇ ¼ıÀÚ¸¦ »Ì¾Æ ÄÄÇ»ÅÍ°¡ ·£´ıÀ¸·Î »ÌÀº ¼ıÀÚ 3°³¿Í ºñ±³ (Áßº¹X)
-2. ¼ıÀÚÀÇ ÀÚ¸®¿Í °ªÀÌ ¸ğµÎ °°À¸¸é strike
-3. ÀÚ¸®´Â ´Ù¸£Áö¸¸ 3°³ÀÇ ¼ıÀÚ Áß Æ÷ÇÔµÇ¾î ÀÖÀ¸¸é ball
+1. ì‚¬ìš©ìëŠ” 1ë¶€í„° 9ê¹Œì§€ ì¤‘ 3ê°œì˜ ìˆ«ìë¥¼ ë½‘ì•„ ì»´í“¨í„°ê°€ ëœë¤ìœ¼ë¡œ ë½‘ì€ ìˆ«ì 3ê°œì™€ ë¹„êµ (ì¤‘ë³µX)
+2. ìˆ«ìì˜ ìë¦¬ì™€ ê°’ì´ ëª¨ë‘ ê°™ìœ¼ë©´ strike
+3. ìë¦¬ëŠ” ë‹¤ë¥´ì§€ë§Œ 3ê°œì˜ ìˆ«ì ì¤‘ í¬í•¨ë˜ì–´ ìˆìœ¼ë©´ ball
 */
 
 #include <iostream>
@@ -11,89 +11,44 @@
 
 using namespace std;
 
-// ÄÄÇ»ÅÍ ·£´ı ¼ıÀÚ
-//vector<int> Computer()
-//{
-//    vector<int> comNums(9);
-//
-//    for (int i = 0; i <= comNums.size() - 1; i++)
-//    {
-//        comNums[i] = i + 1; // °¢ ÀÎµ¦½º¿¡ 1ºÎÅÍ 9±îÁöÀÇ °ªÀ» ÇÒ´ç
-//    }
-//
-//    // ¼ıÀÚ ¼¯±â
-//    random_shuffle(comNums.begin(), comNums.end());
-//
-//    // result_computer º¤ÅÍ¿¡ 3°³ÀÇ ¹øÈ£ ÃßÃâ
-//    vector<int> result_computer(comNums.begin(), comNums.begin() + 3);
-//
-//    return result_computer;
-//}
-
+// ì»´í“¨í„° ëœë¤ ìˆ«ì
 void Computer(vector<int>& comNums)
 {
     comNums.resize(9);
 
     for (int i = 0; i <= comNums.size() - 1; i++)
     {
-        comNums[i] = i + 1; // °¢ ÀÎµ¦½º¿¡ 1ºÎÅÍ 9±îÁöÀÇ °ªÀ» ÇÒ´ç
+        comNums[i] = i + 1; // ê° ì¸ë±ìŠ¤ì— 1ë¶€í„° 9ê¹Œì§€ì˜ ê°’ì„ í• ë‹¹
     }
 
-    // ¼ıÀÚ ¼¯±â
+    // ìˆ«ì ì„ê¸°
     random_shuffle(comNums.begin(), comNums.end());
 
-    //result_computer º¤ÅÍ¿¡ 3°³ÀÇ ¹øÈ£ ÃßÃâ
+    //result_computer ë²¡í„°ì— 3ê°œì˜ ë²ˆí˜¸ ì¶”ì¶œ
     vector<int> result_computer(comNums.begin(), comNums.begin() + 3);
 
-    // result_computer º¤ÅÍ¿¡ 3°³ÀÇ ¹øÈ£ ÃßÃâ
+    // result_computer ë²¡í„°ì— 3ê°œì˜ ë²ˆí˜¸ ì¶”ì¶œ
     comNums.resize(3);
 }
 
-// »ç¿ëÀÚ ¼ıÀÚ ¼±ÅÃ
-//vector<int> User()
-//{
-//    vector<int> userNums; // Å©±â°¡ 3ÀÎ userNums º¤ÅÍ »ı¼º
-//    int userNum;
-//
-//    cout << "1~9 »çÀÌÀÇ ¼ıÀÚ 3°³¸¦ ÀÔ·Â ÇÏ½Ã¿À. (ÀÌ¿ÜÀÇ ¼ıÀÚ : Á¾·á)" << endl;
-//
-//    while (userNums.size() < 3) {
-//        cin >> userNum;
-//
-//        //error : 1~25°¡ ¾Æ´Ñ ´Ù¸¥ ¼ıÀÚ ÀÔ·Â
-//        if (userNum < 1 || userNum > 9) {
-//            cout << "\n°ÔÀÓÀ» Á¾·áÇÕ´Ï´Ù." << endl;
-//            exit(0);
-//        }
-//        else if (find(userNums.begin(), userNums.end(), userNum) != userNums.end()) {
-//            cout << "Áßº¹µÈ ¹øÈ£¸¦ ÀÔ·ÂÇÒ ¼ö ¾ø½À´Ï´Ù." << endl;
-//            continue;
-//        }
-//        else {
-//            userNums.push_back(userNum);
-//        }
-//    }
-//
-//    return userNums;
-//}
-
+// ì‚¬ìš©ì ìˆ«ì ì„ íƒ
 void User(vector<int>& userNums)
 {
-    userNums.clear(); // userNums º¤ÅÍ ÃÊ±âÈ­
+    userNums.clear(); // userNums ë²¡í„° ì´ˆê¸°í™”
     int userNum;
 
-    cout << "1~9 »çÀÌÀÇ ¼ıÀÚ 3°³¸¦ ÀÔ·Â ÇÏ½Ã¿À. (ÀÌ¿ÜÀÇ ¼ıÀÚ : Á¾·á)" << endl;
+    cout << "1~9 ì‚¬ì´ì˜ ìˆ«ì 3ê°œë¥¼ ì…ë ¥ í•˜ì‹œì˜¤. (ì´ì™¸ì˜ ìˆ«ì : ì¢…ë£Œ)" << endl;
 
     while (userNums.size() < 3) {
         cin >> userNum;
 
-        //error : 1~25°¡ ¾Æ´Ñ ´Ù¸¥ ¼ıÀÚ ÀÔ·Â
+        //error : 1~25ê°€ ì•„ë‹Œ ë‹¤ë¥¸ ìˆ«ì ì…ë ¥
         if (userNum < 1 || userNum > 9) {
-            cout << "\n°ÔÀÓÀ» Á¾·áÇÕ´Ï´Ù." << endl;
+            cout << "\nê²Œì„ì„ ì¢…ë£Œí•©ë‹ˆë‹¤." << endl;
             exit(0);
         }
         else if (find(userNums.begin(), userNums.end(), userNum) != userNums.end()) {
-            cout << "Áßº¹µÈ ¹øÈ£¸¦ ÀÔ·ÂÇÒ ¼ö ¾ø½À´Ï´Ù." << endl;
+            cout << "ì¤‘ë³µëœ ë²ˆí˜¸ë¥¼ ì…ë ¥í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤." << endl;
             continue;
         }
         else {
@@ -119,11 +74,10 @@ void StrikeAndBall(const vector<int>& comNums, const vector<int>& userNums, int&
 
 int main() {
 
-    // ½ÇÇà½Ã ³­¼ö ÃÊ±âÈ­
+    // ì‹¤í–‰ì‹œ ë‚œìˆ˜ ì´ˆê¸°í™”
     srand(time(NULL));
 
-    // ÄÄÇ»ÅÍ°¡ ·£´ıÀ¸·Î ¼±ÅÃÇÑ ¼ıÀÚ - Computer ÇÔ¼ö¸¦ È£ÃâÇÏ¿© comNums¿¡ ÀúÀå
-    //vector<int> comNums = Computer();
+    // ì»´í“¨í„°ê°€ ëœë¤ìœ¼ë¡œ ì„ íƒí•œ ìˆ«ì - Computer í•¨ìˆ˜ë¥¼ í˜¸ì¶œí•˜ì—¬ comNumsì— ì €ì¥
     vector<int> comNums;
     Computer(comNums);
 
@@ -132,8 +86,7 @@ int main() {
     int attempts = 0;
 
     do {
-        // »ç¿ëÀÚ°¡ ¼±ÅÃÇÑ ¼ıÀÚ
-        //vector<int> userNums = User();
+        // ì‚¬ìš©ìê°€ ì„ íƒí•œ ìˆ«ì
         vector<int> userNums;
         User(userNums);
         attempts++;
@@ -141,7 +94,7 @@ int main() {
         StrikeAndBall(comNums, userNums, strikes, balls);
 
         if (strikes == 3) {
-            cout << "\nÁ¤´ä!\n" << attempts << "¹ø ¸¸¿¡ ¸ÂÃè½À´Ï´Ù." << endl;
+            cout << "\nì •ë‹µ!\n" << attempts << "ë²ˆ ë§Œì— ë§ì·„ìŠµë‹ˆë‹¤." << endl;
             break;
         }
 
